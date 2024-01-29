@@ -1,0 +1,103 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="container" id="blur">
+    <div class="card">
+        <section class="table__header">
+            <div class="title">
+                <h1>Reunião</h1>
+                <button class="btn btn-criar" title="Criar" onclick="openForm(this)" id="criar">
+                    <i class="ri-add-circle-fill"></i>
+                </button>
+            </div>
+
+            <div class="input-group">
+                <input type="search" name="search" id="search" placeholder="Pesquisar..." onkeyup="filterTable()">
+                <i class="ri-search-line"></i>
+            </div>
+
+            <!-- TODO: adicionar funcionalidade -->
+  <!--           <div class="input-search">
+                <input type="radio" name="search" id="ativo">
+                <label for="ativo">Ativo</label>
+                
+                <input type="radio" name="search" id="inativo">
+                <label for="inativo">Inativo</label>
+
+                <input type="radio" name="search" id="todos" checked>
+                <label for="todos">Todos</label>
+            </div> -->
+        </section>
+        <section class="table__body">
+            <table class="table-sortable" id="table-sortable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Líder</th>
+                        <th>Colaborador</th>
+                        <th>Data</th>
+                        <th colspan="2">Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+     
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div>
+
+<div class="wrapper" id="wrapper">
+    <form action="" id="formReuniao">
+        <h2 class="title" id="title-form"></h2>
+
+        <div class="text-input">
+            <label for="id_lider">Líder</label>
+            <select type="text" name="id_lider" id="id_lider"></select>
+        </div>
+        <div class="text-input">
+            <label for="id_colaborador">Colaborador</label>
+            <select type="text" name="id_colaborador" id="id_colaborador"></select>
+        </div>
+        <div class="text-input">
+            <label for="data">Data</label>
+            <input type="date" name="data_reuniao" id="data" placeholder="Informe a data" required>
+        </div>
+
+        <div class="buttons">
+            <button type="submit" class="btn-save" id="btn-save">Salvar</button>
+            <button class="btn-primary" onclick="closeForm()">Cancelar</button>
+        </div>
+    </form>
+</div>
+
+
+<div class="popup" id="popup">
+    <img src="{{url_for('static', filename='image/exclamation.png')}}" alt="">
+    <h2>Cuidado!</h2>
+    <p>Tem certeza que deseja deletar essa reunião?</p>
+    <button class="btn-primary" type="button" onclick="closePopup()">Cancelar</button>
+    <button class="btn-danger" type="button" onclick="deletarReuniao()">Deletar</button>
+</div>
+
+<div class="alert alert-reg">
+    <i class="ri-checkbox-circle-fill"></i>
+    <span class="reg-msg msg">Salvo com sucesso!</span>
+    <span class="close-btn close-btn-reg">
+        <i class="ri-close-line"></i>
+    </span>
+</div>
+
+<div class="alert alert-del">
+    <i class="ri-checkbox-circle-fill"></i>
+    <span class="del-msg msg">Deletado com sucesso!</span>
+    <span class="close-btn close-btn-del">
+        <i class="ri-close-line"></i>
+    </span>
+</div>
+
+<script src="{{ url_for('static', filename='js/reuniao.js')}}"></script>
+<script src="{{ url_for('static', filename='js/lider.service.js')}}"></script>
+<script src="{{ url_for('static', filename='js/colaborador.service.js')}}"></script>
+<script src="{{ url_for('static', filename='js/reuniao.service.js')}}"></script>
+
+{% endblock %}
