@@ -35,7 +35,7 @@ class Employees(db.Model):
     phone = db.Column(db.String(45), nullable=False)
     email = db.Column(db.String(45), nullable=False)
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
-    departament_id = db.Column(db.Integer, db.ForeignKey('departament.id'))
+    department_id = db.Column(db.Integer, db.ForeignKey('departament.id'))
     gender_id = db.Column(db.Integer, db.ForeignKey('gender.id'))
     birth_date = db.Column(db.Date)
     admission_date = db.Column(db.Date)
@@ -44,12 +44,12 @@ class Employees(db.Model):
     marital_status_id = db.Column(db.Integer, db.ForeignKey('marital_status.id'))
     status_id = db.Column(db.Integer, db.ForeignKey('status.id'))
     
-    def __init__(self, name, phone, email, role_id, departament_id, gender_id, birth_date, admission_date, resignation_date, address_id, marital_status_id, status_id):
+    def __init__(self, name, phone, email, role_id, department_id, gender_id, birth_date, admission_date, resignation_date, address_id, marital_status_id, status_id):
         self.name = name
         self.phone = phone
         self.email = email
         self.role_id = role_id
-        self.departament_id = departament_id
+        self.department_id = department_id
         self.gender_id = gender_id
         self.birth_date = birth_date
         self.admission_date = admission_date
