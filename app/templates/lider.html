@@ -33,8 +33,8 @@
                     <tr>
                         <th>ID</th>
                         <th>Nome</th>
-                        <th>Setor</th>
                         <th>E-mail</th>
+                        <th>Setor</th>
                         <th colspan="2">Ações</th>
                     </tr>
                 </thead>
@@ -42,17 +42,17 @@
                     {% for lider in lideres %}
                     <tr>
                         <ul>
-                            <td>{{ lider.id_lider }}</td>
-                            <td>{{ lider.nome_lider }}</td>
-                            <td>{{ lider.departamento_lider }}</td>
-                            <td>{{ lider.email_lider }}</td>
+                            <td>{{ lider.id }}</td>
+                            <td>{{ lider.name }}</td>
+                            <td>{{ lider.email }}</td>
+                            <td>{{ lider.access_level }}</td>
                             <td>
-                                <button class="btn" type="button" title="Editar" onclick="openForm(this, ${item.id})" id="editar">
+                                <button class="btn" type="button" title="Editar" onclick="openForm()" id="editar">
                                     <i class="ri-edit-2-fill"></i>
                                 </button>
                             </td>
                             <td>
-                                <button class="btn" type="submit" title="Deletar" id="btnDeletar" onclick="openPopup(${item.id})">
+                                <button class="btn" type="submit" title="Deletar" id="btnDeletar" onclick="openPopup()">
                                     <i class="ri-delete-bin-2-fill"></i>
                                 </button>
                             </td>
