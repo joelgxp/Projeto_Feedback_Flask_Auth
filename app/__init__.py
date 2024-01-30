@@ -7,6 +7,8 @@ app = Flask(__name__)
 CORS(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///feedback.db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://hotel631_feedback:8mVYt{DFPV,b@br888.hostgator.com.br/hotel631_feedback'
+
 app.config['SECRET_KEY'] = 'super-secret-key'
 
 login_manager = LoginManager(app)
