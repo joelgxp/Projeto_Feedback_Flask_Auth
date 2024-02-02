@@ -28,7 +28,7 @@
                         <th>Setor</th>
                         <th>Cargo</th>
                         <th class="hideOnMobile" data-title="Admissão">Admissão</th>
-                        <th colspan="2">Ações</th>
+                        <th colspan="3">Ações</th>
                     </tr>
                 </thead>
                 <tbody id="tbody">
@@ -41,13 +41,13 @@
                             <td class="hideOnMobile">{{ employee.email }}</td>
                             <td data-title="Setor">{{ employee.access_level }}</td>
                             <td data-title="Cargo">{{ employee.access_level }}</td>
+                            <td class="hideOnMobile" data-title="Admissão">{{ employee.admission_date }}</td>
                             <td data-title="Ações">{{ employee.admission_date }}</td>
                             <td>
                                 <button class="btn" type="button" title="Editar" id="editar">
                                     <a href="./new-employee.html">
                                         <i class="ri-edit-2-fill"></i>
                                     </a>
-                                    
                                 </button>
                             </td>
                             <td>

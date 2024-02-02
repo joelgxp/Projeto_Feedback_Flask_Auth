@@ -1,3 +1,9 @@
+.container__list {
+    position: relative;
+    top: 50px;
+    width: 100%;
+}
+
 .card {
     width: 100%;
     min-height: 100vh;

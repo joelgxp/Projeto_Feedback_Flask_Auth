@@ -3,6 +3,21 @@
         overflow: scroll;
     }
 
+    .container__list {
+        width: 100%;
+        margin: 40px 10px 0 10px;
+    }
+
+    .container__register {
+        width: 100%;
+        margin: 40px 10px 0 10px;
+    }
+
+    .container {
+        width: 100%;
+        margin: 40px 20px 0 20px;
+    }
+
     .table__header {
         height: auto;
         gap: 10px;
@@ -24,6 +39,7 @@
     .radio-input {
         display: flex;
         flex-direction: row;
+        gap: 2px;
     }
 
     .buttons {
