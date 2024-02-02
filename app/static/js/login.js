@@ -33,9 +33,6 @@ function showLogin() {
 
     const create = document.querySelector('.new-account')
     create.style.display = 'none'
-
-    const forgot = document.querySelector('.forgot-password')
-    forgot.style.display = 'none'
 }
 
 function showCreate() {
@@ -44,7 +41,4 @@ function showCreate() {
 
     const create = document.querySelector('.new-account')
     create.style.display = 'flex'
-
-    const forgot = document.querySelector('.forgot-password')
-    forgot.style.display = 'none'
 }

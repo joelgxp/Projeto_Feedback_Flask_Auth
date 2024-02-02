@@ -14,7 +14,7 @@ def unauthorized():
 @app.route('/')
 @login_required
 def index():
-    return render_template('index.html')
+    return render_template('employees.html')
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -44,7 +44,7 @@ def login():
                         
             if user and user.verify_password(password):
                 login_user(user)
-                return redirect(url_for('index'))
+                return redirect(url_for('employees'))
             else:
                 print('Usuário ou senha inválido')
                 return redirect(url_for('login'))
