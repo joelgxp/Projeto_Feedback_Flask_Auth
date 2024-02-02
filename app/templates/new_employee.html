@@ -103,17 +103,19 @@
                     <input type="radio" name="status" value="inactive" id="inactive">
                     <label for="inactive">Inativo</label>
                 </div>
-                
+
                 <div class="buttons">
                     <button type="submit" class="btn-save" id="btn-save">Salvar</button>
                     <button class="btn-primary" onclick="closeForm()">Cancelar</button>
+                    <button class="btn-danger" type="submit" title="Deletar" id="btnDeletar" onclick="openPopup()">
+                        Deletar
+                    </button>
                 </div>
             </form>
         </section>
     </div>
 </div>
 
-<!-- TODO: Colocar verificação para saber se a página carregada é de um ID válido que tenha como excluir para aparecer essa mensagem -->
 <div class="popup" id="popup">
     <img src="{{url_for('static', filename='image/exclamation.png')}}" alt="">
     <h2>Cuidado!</h2>

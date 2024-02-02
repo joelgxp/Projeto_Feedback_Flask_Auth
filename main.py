@@ -77,13 +77,13 @@ def employees():
         return render_template('employees.html')
     
     
-@app.route('/new-employee', methods=['GET', 'POST'])
+@app.route('/new_employee', methods=['GET', 'POST'])
 @login_required
 def new_employee():
     if request.method == 'GET':
         employees = Users.query.all()
         print(employees)
-        return render_template('new-employee.html', employees=employees)
+        return render_template('new_employee.html', employees=employees)
     
     elif request.method == 'POST':
         

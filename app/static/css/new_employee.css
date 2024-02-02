@@ -80,15 +80,18 @@ form {
     opacity: 100%;
 }
 
-.buttons .btn-primary:hover {
-    opacity: 60%;
-}
-
 .buttons .btn-save {
     background-color: green;
     opacity: 100%;
 }
 
-.buttons .btn-save:hover {
+.buttons .btn-danger {
+    background-color: red;
+    opacity: 100%;
+}
+
+.buttons .btn-primary:hover,
+.buttons .btn-save:hover,
+.buttons .btn-danger:hover {
     opacity: 60%;
 }

@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/listagem.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/employees.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/alert.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/cadastro.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/new_employee.css') }}">
 </head>
 
 <body>
@@ -29,7 +29,7 @@
                 <a href="/employees">Gerenciar</a>
             </li>
             <li>
-                <a href="/new-employee" onclick="openForm(this)">Cadastrar</a>
+                <a href="/new_employee">Cadastrar</a>
             </li>
             <li>
                 <a href="/logout">
@@ -50,7 +50,7 @@
                 <a href="/employees">Gerenciar</a>
             </li>
             <li class="hideOnMobile link">
-                <a href="/new-employee">Cadastrar</a>
+                <a href="/new_employee">Cadastrar</a>
             </li>
             <li class="hideOnMobile logout">
                 <a href="/logout">

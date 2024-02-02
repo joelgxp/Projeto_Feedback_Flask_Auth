@@ -6,9 +6,9 @@
             <div class="title">
                 <h1>Gerenciar time</h1>
                 <!-- TODO: colocar um redirect para a página de cadastro nesse botão -->
-                <button class="btn" title="Novo cadastro" id="criar">
+                <a href="/new_employee" class="btn">
                     <i class="ri-add-circle-fill"></i>
-                </button>
+                </a>
             </div>
 
             <div class="input-group">
@@ -72,14 +72,6 @@
     <button class="btn-danger" type="button" onclick="deletar()">Deletar</button>
 </div>
 
-<div class="alert alert-reg">
-    <i class="ri-checkbox-circle-fill"></i>
-    <span class="reg-msg msg">Salvo com sucesso!</span>
-    <span class="close-btn close-btn-reg">
-        <i class="ri-close-line"></i>
-    </span>
-</div>
-
 <div class="alert alert-del">
     <i class="ri-checkbox-circle-fill"></i>
     <span class="del-msg msg">Deletado com sucesso!</span>
@@ -89,6 +81,5 @@
 </div>
 
 <script src="{{ url_for('static', filename='js/lider.js')}}"></script>
-
 
 {% endblock %}
