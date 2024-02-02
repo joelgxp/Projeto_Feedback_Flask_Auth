@@ -1,13 +1,15 @@
 {% extends 'index.html' %}
 {% block content %}
-<div class="container" id="blur">
+<div class="container__register" id="blur">
     <div class="card">
         <section class="table__header">
             <div class="title">
-                <h1>Cadastrar novo colaborador</h1>
+                <h1 id="">
+                    Cadastro
+                </h1>
             </div>
         </section>
-        <section>
+        <section class="form-control">
             <form action="" method="post" id="formLider">
 
                 <div class="text-input">
@@ -25,42 +27,64 @@
                     <input type="date" name="name" id="name" required>
                 </div>
 
-                <div class="text-input">
+                <div class="text-input radio-input">
                     <label for="gender">Gênero</label>
 
-                    <input type="radio" name="gender" value="cis-man" id="cis-man">
-                    <label for="cis-man">Homem cis</label>
+                    <div>
+                        <input type="radio" name="gender" value="cis-man" id="cis-man">
+                        <label for="cis-man">Homem cis</label>
+                    </div>
 
-                    <input type="radio" name="gender" value="cis-woman" id="cis-woman">
-                    <label for="cis-woman">Mulher cis</label>
+                    <div>
+                        <input type="radio" name="gender" value="cis-woman" id="cis-woman">
+                        <label for="cis-woman">Mulher cis</label>
+                    </div>
 
-                    <input type="radio" name="gender" value="trans-man" id="trans-man">
-                    <label for="trans-man">Homem trans</label>
+                    <div>
+                        <input type="radio" name="gender" value="trans-man" id="trans-man">
+                        <label for="trans-man">Homem trans</label>
+                    </div>
 
-                    <input type="radio" name="gender" value="trans-woman" id="trans-woman">
-                    <label for="trans-woman">Mulher trans</label>
+                    <div>
+                        <input type="radio" name="gender" value="trans-woman" id="trans-woman">
+                        <label for="trans-woman">Mulher trans</label>
+                    </div>
 
-                    <input type="radio" name="gender" value="non-binary" id="non-binary">
-                    <label for="non-binary">Não-binário</label>
+                    <div>
+                        <input type="radio" name="gender" value="non-binary" id="non-binary">
+                        <label for="non-binary">Não-binário</label>
+                    </div>
                 </div>
 
-                <div class="text-input">
+                <div class="text-input radio-input">
                     <label for="marital-status">Estado Civil</label>
 
-                    <input type="radio" name="marital-status" value="sigle" id="sigle">
-                    <label for="sigle">Solteiro(a)</label>
+                    <div>
+                        <input type="radio" name="marital-status" value="sigle" id="sigle">
+                        <label for="sigle">Solteiro(a)</label>
+                    </div>
 
-                    <input type="radio" name="marital-status" value="married" id="married">
-                    <label for="married">Casado(a)</label>
+                    <div>
 
-                    <input type="radio" name="marital-status" value="divorced" id="divorced">
-                    <label for="divorced">Divorciado(a)</label>
+                        <input type="radio" name="marital-status" value="married" id="married">
+                        <label for="married">Casado(a)</label>
+                    </div>
 
-                    <input type="radio" name="marital-status" value="separated" id="separated">
-                    <label for="separated">Separado(a)</label>
+                    <div>
+                        <input type="radio" name="marital-status" value="divorced" id="divorced">
+                        <label for="divorced">Divorciado(a)</label>
+                    </div>
 
-                    <input type="radio" name="marital-status" value="widower" id="widower">
-                    <label for="widower">Viúvo(a)</label>
+                    <div>
+                        <input type="radio" name="marital-status" value="separated" id="separated">
+                        <label for="separated">Separado(a)</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="marital-status" value="widower" id="widower">
+                        <label for="widower">Viúvo(a)</label>
+                    </div>
+
                 </div>
 
                 <div class="text-input">

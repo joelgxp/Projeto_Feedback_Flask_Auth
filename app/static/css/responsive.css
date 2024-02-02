@@ -1,0 +1,139 @@
+@media screen and (max-width: 800px) {
+    body {
+        overflow: scroll;
+    }
+
+    .table__header {
+        height: auto;
+        gap: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .text-input {
+        width: 90%;
+    }
+
+    .text-input input,
+    .text-input select,
+    .text-input label,
+    ::placeholder {
+        font-size: 1.4rem;
+    }
+
+    .radio-input {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 426px) {
+    body {
+        overflow: scroll;
+    }
+
+    .container {
+        width: 100%;
+        margin: 40px 10px 0 10px;
+    }
+
+    .container__list {
+        width: 100%;
+        margin: 40px 10px 0 10px;
+        position: relative;
+        top: 475px;
+    }
+
+    .container__register {
+        width: 100%;
+        margin: 40px 10px 0 10px;
+        position: relative;
+        top: 150px;
+    }
+
+    .table__header {
+        flex-direction: column;
+    }
+
+    .table__header .input-group {
+        width: 75%;
+    }
+
+    .table__header .input-group:hover {
+        width: 76%;
+    }
+
+    h1 {
+        font-size: 2.0rem;
+    }
+
+    table thead tr {
+        display: none;
+    }
+
+    table tr {
+        display: block;
+    }
+
+    table th,
+    table td {
+        padding: .5em;
+    }
+
+    table td {
+        text-align: right;
+        display: block;
+        font-size: 1.6rem;
+    }
+
+    table td::before {
+        content: attr(data-title);
+        float: left;
+        font-weight: 700;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: var(--white);
+    }
+
+    .btn {
+        font-size: 18px;
+    }
+
+    .table__header .title {
+        gap: 5px;
+    }
+
+    .popup {
+        width: 80%;
+    }
+
+    .text-input {
+        width: 90%;
+    }
+
+    .text-input input,
+    .text-input select,
+    .text-input label,
+    ::placeholder {
+        font-size: 1.4rem;
+    }
+
+    .text-input label {
+        width: 90px;
+    }
+
+    .radio-input {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        height: 180px;
+        justify-content: center;
+    }
+}

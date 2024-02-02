@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .header {
     width: 100%;
     display: flex;
@@ -32,6 +26,7 @@ nav {
     top: 0;
     left: 0;
     position: fixed;
+    z-index: 100;
     width: 100%;
     display: flex;
     justify-content: space-between;
