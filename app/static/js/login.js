@@ -12,7 +12,6 @@ function logar() {
         .catch((erro) => {
             console.log(erro)
         })
-
 }
 
 function validarLogin() {
@@ -48,15 +47,4 @@ function showCreate() {
 
     const forgot = document.querySelector('.forgot-password')
     forgot.style.display = 'none'
-}
-
-function showForgot() {
-    const login = document.querySelector('.login')
-    login.style.display = 'none'
-
-    const create = document.querySelector('.new-account')
-    create.style.display = 'none'
-
-    const forgot = document.querySelector('.forgot-password')
-    forgot.style.display = 'flex'
 }
