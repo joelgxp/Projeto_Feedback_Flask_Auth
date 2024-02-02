@@ -6,7 +6,7 @@
             <div class="title">
                 <h1>Gerenciar time</h1>
                 <!-- TODO: colocar um redirect para a página de cadastro nesse botão -->
-                <button class="btn" title="Criar" onclick="openForm(this)" id="criar">
+                <button class="btn" title="Novo cadastro" id="criar">
                     <i class="ri-add-circle-fill"></i>
                 </button>
             </div>
@@ -43,8 +43,11 @@
                             <td data-title="Cargo">{{ employee.access_level }}</td>
                             <td data-title="Ações">{{ employee.admission_date }}</td>
                             <td>
-                                <button class="btn" type="button" title="Editar" onclick="openForm()" id="editar">
-                                    <i class="ri-edit-2-fill"></i>
+                                <button class="btn" type="button" title="Editar" id="editar">
+                                    <a href="./new-employee.html">
+                                        <i class="ri-edit-2-fill"></i>
+                                    </a>
+                                    
                                 </button>
                             </td>
                             <td>
@@ -65,7 +68,7 @@
     <img src="{{url_for('static', filename='image/exclamation.png')}}" alt="">
     <h2>Cuidado!</h2>
     <p>Tem certeza que deseja excluir esse cadastro?</p>
-    <button class="btn-primary" type="button" onclick="closePopup()">Cancelar</button>
+    <button class="btn-primary" type="button" onclick="close()">Cancelar</button>
     <button class="btn-danger" type="button" onclick="deletar()">Deletar</button>
 </div>
 
