@@ -1,41 +1,16 @@
-/* Formulário para cadastrar ou editar */
-.wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50vw;
-    max-width: 400px;
-    min-width: 280px;
-    height: 50vh;
-    max-height: 500px;
-    box-shadow: 0 0 17px 10px rgb(0 0 0 / 30%);
-    border-radius: 20px;
-    background: var(--white);
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.1);
-    visibility: hidden;
-    transition: transform 0.4s, top 0.4s;
-}
-
-.open-wrapper {
-    top: 50%;
-    transform: translate(-50%, -50%) scale(1);
-    visibility: visible;
-}
-
-h2.title {
-    margin: 15px 0;
+h3.subtitle {
+    margin: 10px 0;
     text-transform: uppercase;
+    font-size: 14px;
+    justify-content: flex-start;
 }
 
 form {
+    background-color: #fff;
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 20px;
+    padding: 10px;
     justify-content: center;
     align-items: center;
 }
@@ -44,9 +19,9 @@ form {
     background: #e6e6e6;
     height: 40px;
     display: flex;
-    width: 90%;
+    width: 80%;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     border-radius: 10px;
     padding: 0 15px;
     margin: 5px 0;
@@ -58,7 +33,6 @@ form {
     border: none;
     outline: none;
     width: 100%;
-    height: 100%;
     margin-left: 10px;
     font-size: 1.6rem;
     font-family: 'Poppins', sans-serif;
@@ -68,7 +42,14 @@ form {
 .text-input label {
     color: #686868;
     font-size: 1.6rem;
-    width: 100px;
+    width: 130px;
+}
+
+.text-input input[type="radio"] {
+    width: 15px;
+    height: 15px;
+    margin-right: 15px;
+    margin-left: 0;
 }
 
 ::placeholder {

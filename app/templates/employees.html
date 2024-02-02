@@ -4,7 +4,8 @@
     <div class="card">
         <section class="table__header">
             <div class="title">
-                <h1>Líder</h1>
+                <h1>Gerenciar time</h1>
+                <!-- TODO: colocar um redirect para a página de cadastro nesse botão -->
                 <button class="btn" title="Criar" onclick="openForm(this)" id="criar">
                     <i class="ri-add-circle-fill"></i>
                 </button>
@@ -15,17 +16,6 @@
                 <i class="ri-search-line"></i>
             </div>
 
-            <!-- TODO: adicionar funcionalidade -->
-            <div class="input-radio">
-                <input type="radio" name="radioButton" id="ativo" checked>
-                <label for="ativo">Ativo</label>
-
-                <input type="radio" name="radioButton" id="inativo">
-                <label for="inativo">Inativo</label>
-
-                <input type="radio" name="radioButton" id="todos">
-                <label for="todos">Todos</label>
-            </div>
         </section>
         <section class="table__body">
             <table class="table-sortable" id="table-sortable">
@@ -33,19 +23,25 @@
                     <tr>
                         <th>ID</th>
                         <th>Nome</th>
-                        <th>E-mail</th>
+                        <th class="hideOnMobile" data-title="Celular">Celular</th>
+                        <th class="hideOnMobile" data-title="E-mail">E-mail</th>
                         <th>Setor</th>
+                        <th>Cargo</th>
+                        <th class="hideOnMobile" data-title="Admissão">Admissão</th>
                         <th colspan="2">Ações</th>
                     </tr>
                 </thead>
                 <tbody id="tbody">
-                    {% for lider in lideres %}
+                    {% for employee in employees %}
                     <tr>
                         <ul>
-                            <td>{{ lider.id }}</td>
-                            <td>{{ lider.name }}</td>
-                            <td>{{ lider.email }}</td>
-                            <td>{{ lider.access_level }}</td>
+                            <td data-title="ID">{{ employee.id }}</td>
+                            <td data-title="Nome">{{ employee.name }}</td>
+                            <td class="hideOnMobile">{{ employee.phone }}</td>
+                            <td class="hideOnMobile">{{ employee.email }}</td>
+                            <td data-title="Setor">{{ employee.access_level }}</td>
+                            <td data-title="Cargo">{{ employee.access_level }}</td>
+                            <td data-title="Ações">{{ employee.admission_date }}</td>
                             <td>
                                 <button class="btn" type="button" title="Editar" onclick="openForm()" id="editar">
                                     <i class="ri-edit-2-fill"></i>
@@ -65,37 +61,10 @@
     </div>
 </div>
 
-<div class="wrapper" id="wrapper">
-    <form action="" method="post" id="formLider">
-        <h2 class="title" id="title-form"></h2>
-
-        <div class="text-input">
-            <label for="nome">Nome</label>
-            <input type="text" name="nome" id="nome" placeholder="Informe o nome" required>
-        </div>
-        <div class="text-input">
-            <label for="departamento">Setor</label>
-            <input type="text" name="departamento" id="departamento" placeholder="Informe o departamento" required>
-        </div>
-        <div class="text-input">
-            <label for="email">E-mail</label>
-            <input type="email" name="email" id="email" placeholder="Informe o e-mail" required>
-        </div>
-        <div class="text-input">
-            <label for="password">Senha</label>
-            <input type="password" name="password" id="password" placeholder="Informe a senha" required>
-        </div>
-        <div class="buttons">
-            <button type="submit" class="btn-save" id="btn-save">Salvar</button>
-            <button class="btn-primary" onclick="closeForm()">Cancelar</button>
-        </div>
-    </form>
-</div>
-
 <div class="popup" id="popup">
     <img src="{{url_for('static', filename='image/exclamation.png')}}" alt="">
     <h2>Cuidado!</h2>
-    <p>Tem certeza que deseja deletar esse líder?</p>
+    <p>Tem certeza que deseja excluir esse cadastro?</p>
     <button class="btn-primary" type="button" onclick="closePopup()">Cancelar</button>
     <button class="btn-danger" type="button" onclick="deletar()">Deletar</button>
 </div>

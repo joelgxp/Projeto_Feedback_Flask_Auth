@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connect - Sua plataforma de 1:1</title>
+    <title>Team Track - Gerencie sua Equipe!</title>
     <link rel="shortcut icon" href="./static/image/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css">
     <script src="https://code.jquery.com/jquery-3.7.1.js"
@@ -25,40 +25,37 @@
                     <i class="ri-close-line"></i>
                 </a>
             </li>
-<!--             <li>
-                <a href="/login">Login</a>
-            </li> -->
             <li>
-                <a href="/lider">Líder</a>
+                <a href="/employees">Gerenciar</a>
             </li>
             <li>
-                <a href="/colaborador">Colaborador</a>
+                <a href="/new-employee" onclick="openForm(this)">Cadastrar</a>
             </li>
             <li>
-                <a href="/reuniao">Reunião</a>
+                <a href="/logout">
+                    <p>Sair</p>
+                </a>
             </li>
         </ul>
-        <ul>
-            <li>
-                <a class="logo" href="/lider">Connect</a>
+
+        <div class="header">
+            <a href="/employees">
+                <img class="logo" src="../static/image/logo.png" alt="">
+            </a>
+            <p class="greeting">Olá, {{ current_user.name }}!</p>
+            
+        </div>
+        <ul>        
+            <li class="hideOnMobile link">
+                <a href="/employees">Gerenciar</a>
             </li>
-<!--             <li class="hideOnMobile">
-                <a href="/login">Login</a>
-            </li> -->
-            <li class="hideOnMobile">
-                <a href="/lider">Líder</a>
+            <li class="hideOnMobile link">
+                <a href="/new-employee">Cadastrar</a>
             </li>
-            <li class="hideOnMobile">
-                <a href="/colaborador">Colaborador</a>
-            </li>
-            <li class="hideOnMobile">
-                <a href="/reuniao">Reunião</a>
-            </li>
-            <li class="hideOnMobile">
-                <a href="/logout">Sair</a>
-            </li>
-            <li class="hideOnMobile">
-                <a href="">Olá, {{ current_user.name }}!</a>
+            <li class="hideOnMobile logout">
+                <a href="/logout">
+                    <p>Sair</p>
+                </a>
             </li>
             <li class="menu-button" onclick=showSidebar()>
                 <a href="#">
