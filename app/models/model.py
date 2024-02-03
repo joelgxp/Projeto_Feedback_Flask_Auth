@@ -64,7 +64,7 @@ class Employees(db.Model):
     gender = db.relationship('Gender', backref=db.backref('employees', lazy=True))
     birth_date = db.Column(db.Date)
     admission_date = db.Column(db.Date)
-    resignation_date = db.Column(db.Date)
+    resignation_date = db.Column(db.Date, nullable=True)
     #address_id = db.Column(db.Integer, db.ForeignKey('address.id'))
     marital_status_id = db.Column(db.Integer, db.ForeignKey('marital_status.id'))
     marital_status = db.relationship('MaritalStatus', backref=db.backref('employees', lazy=True))
