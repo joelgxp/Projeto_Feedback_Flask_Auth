@@ -2,10 +2,28 @@
 {% block content %}
 <div class="container__list" id="blur">
     <div class="card">
+
+        <!-- TODO: Estilizar flash messages -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <div id="flash-message" class="alert-reg">
+                <div class="show">
+                    <div class="showAlert">
+                        <li class="flash-message">{{ message }}</li>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        <!-- flash messages -->
+
         <section class="table__header">
             <div class="title">
                 <h1>Gerenciar time</h1>
-                <!-- TODO: colocar um redirect para a página de cadastro nesse botão -->
                 <a href="/employees/new" class="btn">
                     <i class="ri-add-circle-fill"></i>
                 </a>
@@ -15,7 +33,6 @@
                 <input type="search" name="search" id="search" placeholder="Pesquisar..." onkeyup="filterTable()">
                 <i class="ri-search-line"></i>
             </div>
-
         </section>
         <section class="table__body">
             <table class="table-sortable" id="table-sortable">
@@ -42,17 +59,11 @@
                             <td data-title="Setor">{{ employee.role }}</td>
                             <td data-title="Cargo">{{ employee.department }}</td>
                             <td class="hideOnMobile" data-title="Admissão">{{ employee.admission_date }}</td>
-                            <td data-title="Ações">{{ employee.admission_date }}</td>
-                            <td>
+                            <td data-title="Ações">
                                 <button class="btn" type="button" title="Editar" id="editar">
-                                    <a href="./new-employee.html">
+                                    <a href="/employees/{{ employee.id }}/edit">
                                         <i class="ri-edit-2-fill"></i>
                                     </a>
-                                </button>
-                            </td>
-                            <td>
-                                <button class="btn" type="submit" title="Deletar" id="btnDeletar" onclick="openPopup()">
-                                    <i class="ri-delete-bin-2-fill"></i>
                                 </button>
                             </td>
                         </ul>
@@ -81,5 +92,14 @@
 </div>
 
 <script src="{{ url_for('static', filename='js/lider.js')}}"></script>
+<script>
+    // Temporizador para remover automaticamente as mensagens flash após 5 segundos
+    setTimeout(function () {
+        var flashMessages = document.querySelectorAll('.flash-message');
+        flashMessages.forEach(function (message) {
+            message.remove();
+        });
+    }, 5000);
+</script>
 
 {% endblock %}
