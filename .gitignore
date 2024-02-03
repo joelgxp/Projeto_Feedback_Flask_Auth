@@ -2,3 +2,4 @@
 app/models/__pycache__/model.cpython-311.pyc
 app/__pycache__/__init__.cpython-311.pyc
 *.pyc
+app/__init__.py
