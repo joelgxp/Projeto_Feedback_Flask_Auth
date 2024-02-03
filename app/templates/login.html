@@ -20,7 +20,7 @@
             <div class="pill-4 rotate-45"></div>
         </div>
         <div class="login">
-            <form action="" method="post" id="login">
+            <form action="/login" method="post" id="login">
                 <img class="login-logo" src="../static/image/logo.png" alt="">
                 <h3 class="title">Login</h3>
                 <div class="text-input">
@@ -33,36 +33,11 @@
                 </div>
                 <button type="submit" class="login-btn">Entrar</button>
                 <div class="create">
-                    <a onclick=showCreate() class="btn" href="#">Cadastre-se</a>
+                    <a type="submit" class="btn" href="/register">Cadastre-se</a>
                     <i class="ri-arrow-right-fill"></i>
                 </div>
             </form>
         </div>
-
-        <div class="new-account">
-            <form action="" id="new-account">
-                <img class="login-logo" src="../static/image/logo.png" alt="">
-                <h3 class="title">Criar Conta</h3>
-                <div class="text-input">
-                    <i class="ri-user-fill"></i>
-                    <input type="text" name="name" id="nome" placeholder="Digite seu Nome">
-                </div>
-                <div class="text-input">
-                    <i class="ri-mail-fill"></i>
-                    <input type="email" name="email" id="email" placeholder="Digite seu Email">
-                </div>
-                <div class="text-input">
-                    <i class="ri-lock-fill"></i>
-                    <input type="password" name="password" id="senha" placeholder="Digite sua Senha">
-                </div>
-                <button type="button" class="login-btn" onclick="criarConta()">Cadastrar</button>
-                <div class="create">
-                    <a onclick=showLogin() class="btn" href="#">Logar</a>
-                    <i class="ri-arrow-right-fill"></i>
-                </div>
-            </form>
-        </div>
-    </div>
 
     <script src="{{url_for('static', filename='js/login.js')}}"></script>
     <script src="{{url_for('static', filename='js/login.service.js')}}"></script>
