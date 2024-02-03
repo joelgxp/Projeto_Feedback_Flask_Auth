@@ -4,14 +4,13 @@ let popup = document.getElementById('popup'),
     input = document.getElementById("search"),
     table = document.getElementById("table-sortable"),
     rows = table.getElementsByTagName("tr")
-    
-// Popup botão cancelar
-function openPopup(id) {
-    idDelete = id
-    popup.classList.add('open-popup');
-    blur.classList.add('active');
-}
 
+function closeForm() {
+    popForm.classList.remove('open-wrapper');
+    blur.classList.remove('active');
+    window.location.reload();
+}
+s
 function closePopup() {
     popup.classList.remove('open-popup');
     blur.classList.remove('active');
@@ -92,28 +91,3 @@ document.querySelectorAll('.table-sortable th').forEach(headerCell => {
         sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
     })
 })
-
-
-function deletar() {
-    const id = idDelete
-    const dados = { ativo: 0 }
-    putLiderAtivo(id, dados)
-        .then(() => {
-            closePopup();
-            alertaDeletadoSucesso();
-        })
-        .catch((erro) => {
-            console.log(erro)
-        })
-}
-
-function filtrarPorAtivo(data, idSelecionado) {
-    switch (idSelecionado) {
-        case 'ativo':
-            return data.filter(leader => leader.ativo === 1);
-        case 'inativo':
-            return data.filter(leader => leader.ativo === 0);
-        default:
-            return data;
-    }
-}
