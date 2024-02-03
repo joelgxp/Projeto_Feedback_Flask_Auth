@@ -28,33 +28,61 @@ class Users(db.Model, UserMixin):
     def get_id(self):
         return self.id
     
+class Gender(db.Model):
+    __tablename__ = 'gender'
+    id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    name = db.Column(db.String(45), nullable=False)
+    
+    def __init__(self, name):
+        self.name = name
+        
+class MaritalStatus(db.Model):
+    __tablename__ = 'marital_status'
+    id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    name = db.Column(db.String(45), nullable=False)
+    
+    def __init__(self, name):
+        self.name = name
+        
+class Status(db.Model):
+    __tablename__ = 'status'
+    id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    name = db.Column(db.String(45), nullable=False)
+    
+    def __init__(self, name):
+        self.name = name
+    
 class Employees(db.Model):
     __tablename__ = 'employees'
     id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     name = db.Column(db.String(45), nullable=False)
-    phone = db.Column(db.String(45), nullable=False)
+    phone = db.Column(db.String(11), nullable=False)
     email = db.Column(db.String(45), nullable=False)
-    role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
-    department_id = db.Column(db.Integer, db.ForeignKey('departament.id'))
+    role = db.Column(db.String(45), nullable=False)
+    department = db.Column(db.String(45), nullable=False)
     gender_id = db.Column(db.Integer, db.ForeignKey('gender.id'))
+    gender = db.relationship('Gender', backref=db.backref('employees', lazy=True))
     birth_date = db.Column(db.Date)
     admission_date = db.Column(db.Date)
-    resignation_date = db.Column(db.Date)
-    address_id = db.Column(db.Integer, db.ForeignKey('address.id'))
+    resignation_date = db.Column(db.Date, nullable=True)
+    #address_id = db.Column(db.Integer, db.ForeignKey('address.id'))
     marital_status_id = db.Column(db.Integer, db.ForeignKey('marital_status.id'))
+    marital_status = db.relationship('MaritalStatus', backref=db.backref('employees', lazy=True))
     status_id = db.Column(db.Integer, db.ForeignKey('status.id'))
+    status = db.relationship('Status', backref=db.backref('employees', lazy=True))
     
-    def __init__(self, name, phone, email, role_id, department_id, gender_id, birth_date, admission_date, resignation_date, address_id, marital_status_id, status_id):
+    # no init retirei o address
+    def __init__(self, name, phone, email, role, department, gender_id, birth_date, admission_date, resignation_date, marital_status_id, status_id):
         self.name = name
         self.phone = phone
         self.email = email
-        self.role_id = role_id
-        self.department_id = department_id
+        self.role = role
+        self.department = department
         self.gender_id = gender_id
         self.birth_date = birth_date
         self.admission_date = admission_date
         self.resignation_date = resignation_date
-        self.address_id = address_id
+        #self.address_id = address_id
         self.marital_status_id = marital_status_id
         self.status_id = status_id
         

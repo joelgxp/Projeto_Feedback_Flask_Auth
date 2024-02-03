@@ -20,7 +20,7 @@
             <div class="pill-4 rotate-45"></div>
         </div>
         <div class="login">
-            <form action="" method="post" id="login">
+            <form action="/login" method="post" id="login">
                 <img class="login-logo" src="../static/image/logo.png" alt="">
                 <h3 class="title">Login</h3>
                 <div class="text-input">
@@ -33,15 +33,12 @@
                 </div>
                 <button type="submit" class="login-btn">Entrar</button>
                 <div class="create">
-                    <a class="btn" href="/register">Cadastre-se</a>
+                    <a type="submit" class="btn" href="/register">Cadastre-se</a>
                     <i class="ri-arrow-right-fill"></i>
                 </div>
             </form>
         </div>
     </div>
-
-    <script src="{{url_for('static', filename='js/login.js')}}"></script>
-    <script src="{{url_for('static', filename='js/login.service.js')}}"></script>
 </body>
 
 </html>
