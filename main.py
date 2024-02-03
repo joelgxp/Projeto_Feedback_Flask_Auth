@@ -97,7 +97,7 @@ def new_employee():
             employees = Employees(name=name, phone=phone, email=email, role=role, department=department, gender_id=gender_id, birth_date=birth_date, admission_date=admission_date, resignation_date=resignation_date, marital_status_id=marital_status_id, status_id=status_id)
             db.session.add(employees)
             db.session.commit()
-            print('Funcionário cadastrado com sucesso')
+            flash('Funcionário criado com sucesso', 'success')
             return redirect(url_for('employees'))
         except Exception as e:
             print(f'Erro ao cadastrar funcionário: {str(e)}') 
