@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, flash
 from flask_login import LoginManager, login_user, logout_user, login_required
 
 from app import app, db
@@ -69,12 +69,11 @@ def load_user(user_id):
 def employees():
     if request.method == 'GET':
         employees = Employees.query.all()
-        print(employees)
         return render_template('employees.html', employees=employees)
     
     
-@app.route('/employees/new', methods=['GET', 'POST'])
 @login_required
+@app.route('/employees/new', methods=['GET', 'POST'])
 def new_employee():
     if request.method == 'GET':
         return render_template('new_employee.html')
@@ -92,9 +91,7 @@ def new_employee():
         #address_id = request.form.get('address')
         marital_status_id = request.form.get('marital-status')
         status_id = request.form.get('status')        
-
-        print(name, phone, email, role, department, gender_id, birth_date, admission_date, resignation_date, marital_status_id, status_id)
-        
+ 
         try:
             # retirei o address
             employees = Employees(name=name, phone=phone, email=email, role=role, department=department, gender_id=gender_id, birth_date=birth_date, admission_date=admission_date, resignation_date=resignation_date, marital_status_id=marital_status_id, status_id=status_id)
@@ -105,5 +102,38 @@ def new_employee():
         except Exception as e:
             print(f'Erro ao cadastrar funcionário: {str(e)}') 
     
+@login_required
+@app.route('/employees/<int:id>/edit', methods=['GET', 'POST'])
+def edit_employee(id):
+    if request.method == 'GET':
+        employee = Employees.query.get(id)
+        return render_template('edit_employee.html', employee=employee)
     
+    elif request.method == 'POST':
+        employee = Employees.query.get(id)
+        print(employee)
+        employee.name = request.form.get('name')
+        employee.phone = request.form.get('phone')
+        employee.email = request.form.get('email')
+        employee.role = request.form.get('role')
+        employee.department = request.form.get('department')
+        employee.gender_id = request.form.get('gender')
+        employee.birth_date = request.form.get('birth_date')
+        employee.admission_date = request.form.get('admission_date')
+        employee.resignation_date = request.form.get('resignation_date')
+        employee.marital_status_id = request.form.get('marital-status')
+        employee.status_id = request.form.get('status')
+        
+        try:
+            db.session.commit()
+            flash('Funcionário editado com sucesso', 'success')
+            return redirect(url_for('employees'))
+        except Exception as e:
+            print(f'Erro ao editar funcionário: {str(e)}')
+            flash('Erro ao editar funcionário', 'error')
+            return redirect(url_for('employees'))
+        
+    return render_template('edit_employee.html', employee=employee)
+
+
 app.run(debug=True)
