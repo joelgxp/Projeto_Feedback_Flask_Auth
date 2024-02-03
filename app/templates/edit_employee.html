@@ -7,11 +7,13 @@
         {% if messages %}
         <ul>
             {% for message in messages %}
-            <div id="flash-message" class="alert-reg">
-                <div class="show">
-                    <div class="showAlert">
-                        <li class="flash-message">{{ message }}</li>
-                    </div>
+            <div class="flash-message" class="alert-reg">
+                <div class="alert alert-reg">
+                    <i class="ri-checkbox-circle-fill"></i>
+                    <span class="reg-msg msg">{{ message }}</span>
+                    <span class="close-btn close-btn-reg">
+                        <i class="ri-close-line"></i>
+                    </span>
                 </div>
             </div>
             {% endfor %}
@@ -19,7 +21,7 @@
         {% endif %}
         {% endwith %}
         <!-- flash messages -->
-        
+
     <div class="card">
         <section class="table__header">
             <div class="title">
@@ -145,9 +147,6 @@
                 <div class="buttons">
                     <button type="submit" class="btn-save" id="btn-save">Salvar</button>
                     <button class="btn-primary" onclick="closeForm()">Cancelar</button>
-                    <button class="btn-danger" type="submit" title="Deletar" id="btnDeletar" onclick="openPopup()">
-                        Deletar
-                    </button>
                 </div>
             </form>
         </section>
@@ -161,13 +160,7 @@
     <button class="btn-primary" type="button" onclick="closePopup()">Cancelar</button>
 </div>
 
-<div class="alert alert-reg">
-    <i class="ri-checkbox-circle-fill"></i>
-    <span class="reg-msg msg">Salvo com sucesso!</span>
-    <span class="close-btn close-btn-reg">
-        <i class="ri-close-line"></i>
-    </span>
-</div>
+
 
 <div class="alert alert-del">
     <i class="ri-checkbox-circle-fill"></i>
