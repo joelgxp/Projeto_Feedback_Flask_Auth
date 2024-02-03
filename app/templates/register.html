@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Track | Login</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/image/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+</head>
+
+<body>
+    <div class="container__login">
+        <div class="design">
+            <div class="pill-1 rotate-45"></div>
+            <div class="pill-2 rotate-45"></div>
+            <div class="pill-3 rotate-45"></div>
+            <div class="pill-4 rotate-45"></div>
+        </div>
+        
+        <div class="new-account">
+            <form action="/register" method="post" id="new-account">
+                <img class="login-logo" src="../static/image/logo.png" alt="">
+                <h3 class="title">Criar Conta</h3>
+                <div class="text-input">
+                    <i class="ri-user-fill"></i>
+                    <input type="text" name="name" id="name" placeholder="Digite seu Nome">
+                </div>
+                <div class="text-input">
+                    <i class="ri-mail-fill"></i>
+                    <input type="email" name="email" id="email" placeholder="Digite seu Email">
+                </div>
+                <div class="text-input">
+                    <i class="ri-lock-fill"></i>
+                    <input type="password" name="password" id="password" placeholder="Digite sua Senha">
+                </div>
+                <button type="submit" class="login-btn">Cadastrar</button>
+                <div class="create">
+                    <a class="btn" href="/login">Logar</a>
+                    <i class="ri-arrow-right-fill"></i>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{url_for('static', filename='js/login.js')}}"></script>
+    <script src="{{url_for('static', filename='js/login.service.js')}}"></script>
+</body>
+
+</html>
