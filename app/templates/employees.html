@@ -6,7 +6,7 @@
             <div class="title">
                 <h1>Gerenciar time</h1>
                 <!-- TODO: colocar um redirect para a página de cadastro nesse botão -->
-                <a href="/new_employee" class="btn">
+                <a href="/employees/new" class="btn">
                     <i class="ri-add-circle-fill"></i>
                 </a>
             </div>
@@ -39,8 +39,8 @@
                             <td data-title="Nome">{{ employee.name }}</td>
                             <td class="hideOnMobile">{{ employee.phone }}</td>
                             <td class="hideOnMobile">{{ employee.email }}</td>
-                            <td data-title="Setor">{{ employee.access_level }}</td>
-                            <td data-title="Cargo">{{ employee.access_level }}</td>
+                            <td data-title="Setor">{{ employee.role }}</td>
+                            <td data-title="Cargo">{{ employee.department }}</td>
                             <td class="hideOnMobile" data-title="Admissão">{{ employee.admission_date }}</td>
                             <td data-title="Ações">{{ employee.admission_date }}</td>
                             <td>
