@@ -6,9 +6,7 @@ let popup = document.getElementById('popup'),
     rows = table.getElementsByTagName("tr")
 
 function closeForm() {
-    popForm.classList.remove('open-wrapper');
-    blur.classList.remove('active');
-    window.location.reload();
+    window.location.href("/employees");
 }
 s
 function closePopup() {
