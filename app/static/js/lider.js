@@ -24,25 +24,25 @@ function closePopup() {
     blur.classList.remove('active');
 }
 
-// Popup formulário
-function openForm(button, id) {
-    const buttonID = button.id
-    popForm.classList.add('open-wrapper')
-    if (buttonID === "editar") {
-        document.getElementById("title-form").innerText = "Editar"
-        editarLider(id)
-    } else {
-        document.getElementById("title-form").innerText = "Criar"
-        criarLider()
-    }
-    blur.classList.add('active')
-}
+// // Popup formulário
+// function openForm(button, id) {
+//     const buttonID = button.id
+//     popForm.classList.add('open-wrapper')
+//     if (buttonID === "editar") {
+//         document.getElementById("title-form").innerText = "Editar"
+//         editarLider(id)
+//     } else {
+//         document.getElementById("title-form").innerText = "Criar"
+//         criarLider()
+//     }
+//     blur.classList.add('active')
+// }
 
-function closeForm() {
-    popForm.classList.remove('open-wrapper');
-    blur.classList.remove('active');
-    window.location.reload();
-}
+// function closeForm() {
+//     popForm.classList.remove('open-wrapper');
+//     blur.classList.remove('active');
+//     window.location.reload();
+// }
 
 // Filtro de pesquisa
 function filterTable() {

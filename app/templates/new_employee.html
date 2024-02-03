@@ -1,0 +1,170 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="container__register" id="blur">
+    <div class="card">
+        <section class="table__header">
+            <div class="title">
+                <h1 id="">
+                    Cadastro
+                </h1>
+            </div>
+        </section>
+        <section class="form-control">
+            <form action="" method="post" id="formLider">
+
+                <div class="text-input">
+                    <label for="id">ID</label>
+                    <input type="text" name="id" id="id" placeholder="Informe o ID" required>
+                </div>
+
+                <div class="text-input">
+                    <label for="name">Nome</label>
+                    <input type="text" name="name" id="name" placeholder="Informe o nome" required>
+                </div>
+
+                <div class="text-input">
+                    <label for="name">Nascimento</label>
+                    <input type="date" name="name" id="name" required>
+                </div>
+
+                <div class="text-input radio-input">
+                    <label for="gender">Gênero</label>
+
+                    <div>
+                        <input type="radio" name="gender" value="cis-man" id="cis-man">
+                        <label for="cis-man">Homem cis</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="gender" value="cis-woman" id="cis-woman">
+                        <label for="cis-woman">Mulher cis</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="gender" value="trans-man" id="trans-man">
+                        <label for="trans-man">Homem trans</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="gender" value="trans-woman" id="trans-woman">
+                        <label for="trans-woman">Mulher trans</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="gender" value="non-binary" id="non-binary">
+                        <label for="non-binary">Não-binário</label>
+                    </div>
+                </div>
+
+                <div class="text-input radio-input">
+                    <label for="marital-status">Estado Civil</label>
+
+                    <div>
+                        <input type="radio" name="marital-status" value="sigle" id="sigle">
+                        <label for="sigle">Solteiro(a)</label>
+                    </div>
+
+                    <div>
+
+                        <input type="radio" name="marital-status" value="married" id="married">
+                        <label for="married">Casado(a)</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="marital-status" value="divorced" id="divorced">
+                        <label for="divorced">Divorciado(a)</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="marital-status" value="separated" id="separated">
+                        <label for="separated">Separado(a)</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="marital-status" value="widower" id="widower">
+                        <label for="widower">Viúvo(a)</label>
+                    </div>
+
+                </div>
+
+                <div class="text-input">
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" id="email" placeholder="Informe o e-mail" required>
+                </div>
+
+                <div class="text-input">
+                    <label for="phone">Celular</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="(99) 99999-9999"
+                        data-mask="(00) 00000-0000" data-mask-selectonfocus="true"
+                        pattern="(\([0-9]{2}\))\s([9]{1})?([0-9]{5})-([0-9]{4})" required="required" />
+                </div>
+
+                <div class="text-input">
+                    <label for="department">Setor</label>
+                    <input type="text" name="department" id="department" placeholder="Informe o departmento" required>
+                </div>
+                <div class="text-input">
+                    <label for="role">Cargo</label>
+                    <input type="text" name="role" id="role" placeholder="Informe o cargo" required>
+                </div>
+
+                <div class="text-input">
+                    <label for="admission_date">Admissão</label>
+                    <input type="date" name="admission_date" id="admission_date" required>
+                </div>
+
+                <div class="text-input">
+                    <label for="resignation_date">Desligamento</label>
+                    <input type="date" name="resignation_date" id="resignation_date">
+                </div>
+
+                <div class="text-input">
+                    <label for="status">Status</label>
+
+                    <input type="radio" name="status" value="active" id="active">
+                    <label for="active">Ativo</label>
+
+                    <input type="radio" name="status" value="inactive" id="inactive">
+                    <label for="inactive">Inativo</label>
+                </div>
+
+                <div class="buttons">
+                    <button type="submit" class="btn-save" id="btn-save">Salvar</button>
+                    <button class="btn-primary" onclick="closeForm()">Cancelar</button>
+                    <button class="btn-danger" type="submit" title="Deletar" id="btnDeletar" onclick="openPopup()">
+                        Deletar
+                    </button>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+
+<div class="popup" id="popup">
+    <img src="{{url_for('static', filename='image/exclamation.png')}}" alt="">
+    <h2>Cuidado!</h2>
+    <p>Tem certeza que deseja excluir esse cadastro?</p>
+    <button class="btn-primary" type="button" onclick="closePopup()">Cancelar</button>
+    <button class="btn-danger" type="button" onclick="deletar()">Deletar</button>
+</div>
+
+<div class="alert alert-reg">
+    <i class="ri-checkbox-circle-fill"></i>
+    <span class="reg-msg msg">Salvo com sucesso!</span>
+    <span class="close-btn close-btn-reg">
+        <i class="ri-close-line"></i>
+    </span>
+</div>
+
+<div class="alert alert-del">
+    <i class="ri-checkbox-circle-fill"></i>
+    <span class="del-msg msg">Deletado com sucesso!</span>
+    <span class="close-btn close-btn-del">
+        <i class="ri-close-line"></i>
+    </span>
+</div>
+
+<script src="{{ url_for('static', filename='js/lider.js')}}"></script>
+
+
+{% endblock %}

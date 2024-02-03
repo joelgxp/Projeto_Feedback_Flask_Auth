@@ -14,7 +14,7 @@ def unauthorized():
 @app.route('/')
 @login_required
 def index():
-    return render_template('index.html')
+    return render_template('employees.html')
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -44,7 +44,7 @@ def login():
                         
             if user and user.verify_password(password):
                 login_user(user)
-                return redirect(url_for('index'))
+                return redirect(url_for('employees'))
             else:
                 print('Usuário ou senha inválido')
                 return redirect(url_for('login'))
@@ -63,20 +63,31 @@ def load_user(user_id):
 
 # END LOGIN
 
-# Lider
-@app.route('/lider', methods=['GET', 'POST'])
+# Employees
+@app.route('/employees', methods=['GET', 'POST'])
 @login_required
-def lider():
+def employees():
     if request.method == 'GET':
-        lideres = Users.query.all()
-        print(lideres)
-        return render_template('lider.html', lideres=lideres)
+        employees = Users.query.all()
+        print(employees)
+        return render_template('employees.html', employees=employees)
     
     elif request.method == 'POST':
         
-        return render_template('lider.html')
+        return render_template('employees.html')
     
-   
-
-
+    
+@app.route('/new_employee', methods=['GET', 'POST'])
+@login_required
+def new_employee():
+    if request.method == 'GET':
+        employees = Users.query.all()
+        print(employees)
+        return render_template('new_employee.html', employees=employees)
+    
+    elif request.method == 'POST':
+        
+        return render_template('employees.html')
+    
+    
 app.run(debug=True)

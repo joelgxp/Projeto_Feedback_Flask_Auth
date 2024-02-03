@@ -1,29 +1,12 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-height: 100vh;
-    overflow: hidden;
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.container__list {
+    position: relative;
+    top: 50px;
     width: 100%;
-    min-height: 90vh;
-    overflow-y: auto;
-}
-
-.container#blur.active {
-    filter: blur(10px);
-    pointer-events: none;
-    user-select: none;
 }
 
 .card {
-    max-width: 1000px;
-    height: 70vh;
+    width: 100%;
+    min-height: 100vh;
 }
 
 table {
@@ -59,11 +42,14 @@ table td {
 }
 
 .table-sortable .th-sort-asc:not(:last-child)::after {
-    content: "\25b4"
+    content: "\25b4";
+    color: #fb8883;
+
 }
 
 .table-sortable .th-sort-desc::after {
-    content: "\25be"
+    content: "\25be";
+    color: #fb8883;
 }
 
 .table-sortable .th-sort-asc::after,
@@ -73,8 +59,7 @@ table td {
 
 .table-sortable .th-sort-asc,
 .table-sortable .th-sort-desc {
-    background-color: rgba(0, 0, 0, 0.1);
-    color: #fb8883;
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .table-sortable th:last-child {
@@ -94,6 +79,7 @@ table td {
 .table__header .title {
     display: flex;
     gap: 10px;
+    text-transform: uppercase;
 }
 
 .table__header .title h1 {
@@ -106,7 +92,7 @@ table td {
 
 .table__header .input-group {
     width: 30%;
-    height: 30px;
+    height: 40px;
     background-color: #fff5;
     padding: 0 .8rem;
     border-radius: 2rem;
@@ -128,6 +114,8 @@ table td {
     background-color: transparent;
     border: none;
     outline: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
 }
 
 .table__header .input-search {
@@ -146,6 +134,7 @@ table td {
     background-color: transparent;
     font-size: 24px;
     cursor: pointer;
+    align-items: center;
 }
 
 .ri-edit-2-fill {
@@ -157,7 +146,6 @@ table td {
 }
 
 /* Popup de alerta para deletar */
-
 .popup {
     width: 400px;
     background: var(--white);
@@ -228,86 +216,4 @@ table td {
 
 .popup .btn-danger:hover {
     opacity: 60%;
-}
-
-/* Responsividade */
-
-@media (max-width: 800px) {
-    .container {
-        width: 90%;
-    }
-
-    .table__header {
-        height: auto;
-        gap: 10px;
-    }
-}
-
-
-@media (max-width: 426px) {
-    .container {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    .card {
-        width: 80%;
-    }
-
-    .table__header {
-        flex-direction: column;
-    }
-
-    .table__header .input-group {
-        width: 60%;
-    }
-
-    .table__header .input-group:hover {
-        width: 61%;
-    }
-
-    h1 {
-        font-size: 2.0rem;
-    }
-
-    table thead tr {
-        display: none;
-    }
-
-    table tr {
-        display: block;
-    }
-
-    table th,
-    table td {
-        padding: .5em;
-    }
-
-    table td {
-        text-align: right;
-        display: block;
-        font-size: 1.6rem;
-    }
-
-    table td::before {
-        content: attr(data-title);
-        float: left;
-        font-weight: 700;
-    }
-
-    tbody tr:nth-child(even) {
-        background-color: var(--white);
-    }
-
-    .btn {
-        font-size: 18px;
-    }
-
-    .table__header .title {
-        gap: 5px;
-    }
-
-    .popup {
-        width: 80%;
-    }
 }

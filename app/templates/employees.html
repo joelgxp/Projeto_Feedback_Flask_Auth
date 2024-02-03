@@ -1,0 +1,85 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="container__list" id="blur">
+    <div class="card">
+        <section class="table__header">
+            <div class="title">
+                <h1>Gerenciar time</h1>
+                <!-- TODO: colocar um redirect para a página de cadastro nesse botão -->
+                <a href="/new_employee" class="btn">
+                    <i class="ri-add-circle-fill"></i>
+                </a>
+            </div>
+
+            <div class="input-group">
+                <input type="search" name="search" id="search" placeholder="Pesquisar..." onkeyup="filterTable()">
+                <i class="ri-search-line"></i>
+            </div>
+
+        </section>
+        <section class="table__body">
+            <table class="table-sortable" id="table-sortable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th class="hideOnMobile" data-title="Celular">Celular</th>
+                        <th class="hideOnMobile" data-title="E-mail">E-mail</th>
+                        <th>Setor</th>
+                        <th>Cargo</th>
+                        <th class="hideOnMobile" data-title="Admissão">Admissão</th>
+                        <th colspan="3">Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    {% for employee in employees %}
+                    <tr>
+                        <ul>
+                            <td data-title="ID">{{ employee.id }}</td>
+                            <td data-title="Nome">{{ employee.name }}</td>
+                            <td class="hideOnMobile">{{ employee.phone }}</td>
+                            <td class="hideOnMobile">{{ employee.email }}</td>
+                            <td data-title="Setor">{{ employee.access_level }}</td>
+                            <td data-title="Cargo">{{ employee.access_level }}</td>
+                            <td class="hideOnMobile" data-title="Admissão">{{ employee.admission_date }}</td>
+                            <td data-title="Ações">{{ employee.admission_date }}</td>
+                            <td>
+                                <button class="btn" type="button" title="Editar" id="editar">
+                                    <a href="./new-employee.html">
+                                        <i class="ri-edit-2-fill"></i>
+                                    </a>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="btn" type="submit" title="Deletar" id="btnDeletar" onclick="openPopup()">
+                                    <i class="ri-delete-bin-2-fill"></i>
+                                </button>
+                            </td>
+                        </ul>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div>
+
+<div class="popup" id="popup">
+    <img src="{{url_for('static', filename='image/exclamation.png')}}" alt="">
+    <h2>Cuidado!</h2>
+    <p>Tem certeza que deseja excluir esse cadastro?</p>
+    <button class="btn-primary" type="button" onclick="close()">Cancelar</button>
+    <button class="btn-danger" type="button" onclick="deletar()">Deletar</button>
+</div>
+
+<div class="alert alert-del">
+    <i class="ri-checkbox-circle-fill"></i>
+    <span class="del-msg msg">Deletado com sucesso!</span>
+    <span class="close-btn close-btn-del">
+        <i class="ri-close-line"></i>
+    </span>
+</div>
+
+<script src="{{ url_for('static', filename='js/lider.js')}}"></script>
+
+{% endblock %}
