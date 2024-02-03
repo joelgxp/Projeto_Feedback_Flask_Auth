@@ -10,12 +10,7 @@
             </div>
         </section>
         <section class="form-control">
-            <form action="" method="post" id="formLider">
-
-                <div class="text-input">
-                    <label for="id">ID</label>
-                    <input type="text" name="id" id="id" placeholder="Informe o ID" required>
-                </div>
+            <form action="/employees/new" method="post" id="formLider">
 
                 <div class="text-input">
                     <label for="name">Nome</label>
@@ -23,35 +18,35 @@
                 </div>
 
                 <div class="text-input">
-                    <label for="name">Nascimento</label>
-                    <input type="date" name="name" id="name" required>
+                    <label for="birth_date">Nascimento</label>
+                    <input type="date" name="birth_date" id="birth_date" required>
                 </div>
 
                 <div class="text-input radio-input">
                     <label for="gender">Gênero</label>
 
                     <div>
-                        <input type="radio" name="gender" value="cis-man" id="cis-man">
+                        <input type="radio" name="gender" value="1" id="cis-man">
                         <label for="cis-man">Homem cis</label>
                     </div>
 
                     <div>
-                        <input type="radio" name="gender" value="cis-woman" id="cis-woman">
+                        <input type="radio" name="gender" value="2" id="cis-woman">
                         <label for="cis-woman">Mulher cis</label>
                     </div>
 
                     <div>
-                        <input type="radio" name="gender" value="trans-man" id="trans-man">
+                        <input type="radio" name="gender" value="3" id="trans-man">
                         <label for="trans-man">Homem trans</label>
                     </div>
 
                     <div>
-                        <input type="radio" name="gender" value="trans-woman" id="trans-woman">
+                        <input type="radio" name="gender" value="4" id="trans-woman">
                         <label for="trans-woman">Mulher trans</label>
                     </div>
 
                     <div>
-                        <input type="radio" name="gender" value="non-binary" id="non-binary">
+                        <input type="radio" name="gender" value="5" id="non-binary">
                         <label for="non-binary">Não-binário</label>
                     </div>
                 </div>
@@ -60,28 +55,28 @@
                     <label for="marital-status">Estado Civil</label>
 
                     <div>
-                        <input type="radio" name="marital-status" value="sigle" id="sigle">
+                        <input type="radio" name="marital-status" value="1" id="single">
                         <label for="sigle">Solteiro(a)</label>
                     </div>
 
                     <div>
 
-                        <input type="radio" name="marital-status" value="married" id="married">
+                        <input type="radio" name="marital-status" value="2" id="married">
                         <label for="married">Casado(a)</label>
                     </div>
 
                     <div>
-                        <input type="radio" name="marital-status" value="divorced" id="divorced">
+                        <input type="radio" name="marital-status" value="3" id="divorced">
                         <label for="divorced">Divorciado(a)</label>
                     </div>
 
                     <div>
-                        <input type="radio" name="marital-status" value="separated" id="separated">
+                        <input type="radio" name="marital-status" value="4" id="separated">
                         <label for="separated">Separado(a)</label>
                     </div>
 
                     <div>
-                        <input type="radio" name="marital-status" value="widower" id="widower">
+                        <input type="radio" name="marital-status" value="5" id="widower">
                         <label for="widower">Viúvo(a)</label>
                     </div>
 
@@ -94,9 +89,7 @@
 
                 <div class="text-input">
                     <label for="phone">Celular</label>
-                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="(99) 99999-9999"
-                        data-mask="(00) 00000-0000" data-mask-selectonfocus="true"
-                        pattern="(\([0-9]{2}\))\s([9]{1})?([0-9]{5})-([0-9]{4})" required="required" />
+                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="(99) 99999-9999" required="required" />
                 </div>
 
                 <div class="text-input">
@@ -121,10 +114,10 @@
                 <div class="text-input">
                     <label for="status">Status</label>
 
-                    <input type="radio" name="status" value="active" id="active">
+                    <input type="radio" name="status" value="1" id="active">
                     <label for="active">Ativo</label>
 
-                    <input type="radio" name="status" value="inactive" id="inactive">
+                    <input type="radio" name="status" value="2" id="inactive">
                     <label for="inactive">Inativo</label>
                 </div>
 
