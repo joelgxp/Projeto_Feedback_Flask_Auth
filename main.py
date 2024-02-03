@@ -76,7 +76,12 @@ def employees():
         
         return render_template('employees.html')
     
+
+# @app.route('/employee/<int:id>', methods=['GET', 'POST'])
+# @login_required
+# def edit_employee():
     
+
 @app.route('/new_employee', methods=['GET', 'POST'])
 @login_required
 def new_employee():

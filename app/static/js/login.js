@@ -25,20 +25,3 @@ function validarLogin() {
         
     }
 }
-
-
-function showLogin() {
-    const login = document.querySelector('.login')
-    login.style.display = 'flex'
-
-    const create = document.querySelector('.new-account')
-    create.style.display = 'none'
-}
-
-function showCreate() {
-    const login = document.querySelector('.login')
-    login.style.display = 'none'
-
-    const create = document.querySelector('.new-account')
-    create.style.display = 'flex'
-}
