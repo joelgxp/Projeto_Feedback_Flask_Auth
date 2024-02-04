@@ -2,25 +2,6 @@
 {% block content %}
 <div class="container__list" id="blur">
     <div class="card">
-
-        <!-- TODO: Estilizar flash messages -->
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul>
-            {% for message in messages %}
-            <div id="flash-message" class="alert-reg">
-                <div class="show">
-                    <div class="showAlert">
-                        <li class="flash-message">{{ message }}</li>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% endwith %}
-        <!-- flash messages -->
-
         <section class="table__header">
             <div class="title">
                 <h1>Gerenciar time</h1>
@@ -75,31 +56,6 @@
     </div>
 </div>
 
-<div class="popup" id="popup">
-    <img src="{{url_for('static', filename='image/exclamation.png')}}" alt="">
-    <h2>Cuidado!</h2>
-    <p>Tem certeza que deseja excluir esse cadastro?</p>
-    <button class="btn-primary" type="button" onclick="close()">Cancelar</button>
-    <button class="btn-danger" type="button" onclick="deletar()">Deletar</button>
-</div>
-
-<div class="alert alert-del">
-    <i class="ri-checkbox-circle-fill"></i>
-    <span class="del-msg msg">Deletado com sucesso!</span>
-    <span class="close-btn close-btn-del">
-        <i class="ri-close-line"></i>
-    </span>
-</div>
-
-<script src="{{ url_for('static', filename='js/lider.js')}}"></script>
-<script>
-    // Temporizador para remover automaticamente as mensagens flash após 5 segundos
-    setTimeout(function () {
-        var flashMessages = document.querySelectorAll('.flash-message');
-        flashMessages.forEach(function (message) {
-            message.remove();
-        });
-    }, 5000);
-</script>
+<script src="{{ url_for('static', filename='js/employee.js')}}"></script>
 
 {% endblock %}
