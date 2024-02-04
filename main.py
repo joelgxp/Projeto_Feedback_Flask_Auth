@@ -6,6 +6,11 @@ from app.models.model import Users, Employees
 
 login_manager = LoginManager(app)
 
+@login_manager.user_loader
+def load_user(user_id):
+    return db.session.get(Users, int(user_id))
+    #return Users.query.get(int(user_id))
+    
 
 @login_manager.unauthorized_handler
 def unauthorized():
@@ -29,7 +34,7 @@ def register():
             users = Users(name, email, password, access_level)
             db.session.add(users)
             db.session.commit()
-            
+            flash('Usuário criado com sucesso', 'success')
             return redirect(url_for('login'))
         
     return render_template('register.html')
@@ -44,6 +49,7 @@ def login():
                         
             if user and user.verify_password(password):
                 login_user(user)
+                print('Usuário logado com sucesso')
                 return redirect(url_for('employees'))
             else:
                 print('Usuário ou senha inválido')
@@ -57,23 +63,19 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
-@login_manager.user_loader
-def load_user(user_id):
-    return Users.query.get(int(user_id))
-
 # END LOGIN
 
 # Employees
-@login_required
 @app.route('/employees', methods=['GET', 'POST'])
+@login_required
 def employees():
     if request.method == 'GET':
-        employees = Employees.query.all()
+        employees = Employees.query.filter_by(status_id=1).all()
         return render_template('employees.html', employees=employees)
     
     
-@login_required
 @app.route('/employees/new', methods=['GET', 'POST'])
+@login_required
 def new_employee():
     if request.method == 'GET':
         return render_template('new_employee.html')
@@ -88,12 +90,10 @@ def new_employee():
         birth_date = request.form.get('birth_date')
         admission_date = request.form.get('admission_date')
         resignation_date = request.form.get('resignation_date')
-        #address_id = request.form.get('address')
         marital_status_id = request.form.get('marital-status')
         status_id = request.form.get('status')        
  
         try:
-            # retirei o address
             employees = Employees(name=name, phone=phone, email=email, role=role, department=department, gender_id=gender_id, birth_date=birth_date, admission_date=admission_date, resignation_date=resignation_date, marital_status_id=marital_status_id, status_id=status_id)
             db.session.add(employees)
             db.session.commit()
@@ -102,8 +102,8 @@ def new_employee():
         except Exception as e:
             print(f'Erro ao cadastrar funcionário: {str(e)}') 
     
-@login_required
 @app.route('/employees/<int:id>/edit', methods=['GET', 'POST'])
+@login_required
 def edit_employee(id):
     if request.method == 'GET':
         employee = Employees.query.get(id)
@@ -111,7 +111,6 @@ def edit_employee(id):
     
     elif request.method == 'POST':
         employee = Employees.query.get(id)
-        print(employee)
         employee.name = request.form.get('name')
         employee.phone = request.form.get('phone')
         employee.email = request.form.get('email')
