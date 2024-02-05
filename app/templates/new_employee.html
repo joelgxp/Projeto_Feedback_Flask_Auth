@@ -1,0 +1,157 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="container__register" id="blur">
+    <div class="card">
+
+          <!-- TODO: Estilizar flash messages -->
+          {% with messages = get_flashed_messages() %}
+          {% if messages %}
+          <ul>
+              {% for message in messages %}
+              <div class="flash-message" class="alert-reg">
+                <div class="alert alert-reg">
+                    <i class="ri-checkbox-circle-fill"></i>
+                    <span class="reg-msg msg">Salvo com sucesso!</span>
+                    <span class="close-btn close-btn-reg">
+                        <i class="ri-close-line"></i>
+                    </span>
+                </div>
+              </div>
+              {% endfor %}
+          </ul>
+          {% endif %}
+          {% endwith %}
+          <!-- flash messages -->
+
+        <section class="table__header">
+            <div class="title">
+                <h1 id="">
+                    Cadastro
+                </h1>
+            </div>
+        </section>
+        <section class="form-control">
+            <form action="/employees/new" method="post" id="formLider">
+
+                <div class="text-input">
+                    <label for="name">Nome</label>
+                    <input type="text" name="name" id="name" placeholder="Informe o nome" required>
+                </div>
+
+                <div class="text-input">
+                    <label for="birth_date">Nascimento</label>
+                    <input type="date" name="birth_date" id="birth_date" required>
+                </div>
+
+                <div class="text-input radio-input">
+                    <label for="gender">Gênero</label>
+
+                    <div>
+                        <input type="radio" name="gender" value="1" id="cis-man">
+                        <label for="cis-man">Homem cis</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="gender" value="2" id="cis-woman">
+                        <label for="cis-woman">Mulher cis</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="gender" value="3" id="trans-man">
+                        <label for="trans-man">Homem trans</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="gender" value="4" id="trans-woman">
+                        <label for="trans-woman">Mulher trans</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="gender" value="5" id="non-binary">
+                        <label for="non-binary">Não-binário</label>
+                    </div>
+                </div>
+
+                <div class="text-input radio-input">
+                    <label for="marital-status">Estado Civil</label>
+
+                    <div>
+                        <input type="radio" name="marital-status" value="1" id="single">
+                        <label for="sigle">Solteiro(a)</label>
+                    </div>
+
+                    <div>
+
+                        <input type="radio" name="marital-status" value="2" id="married">
+                        <label for="married">Casado(a)</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="marital-status" value="3" id="divorced">
+                        <label for="divorced">Divorciado(a)</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="marital-status" value="4" id="separated">
+                        <label for="separated">Separado(a)</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="marital-status" value="5" id="widower">
+                        <label for="widower">Viúvo(a)</label>
+                    </div>
+
+                </div>
+
+                <div class="text-input">
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" id="email" placeholder="Informe o e-mail" required>
+                </div>
+
+                <div class="text-input">
+                    <label for="phone">Celular</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="(99) 99999-9999" required="required" />
+                </div>
+
+                <div class="text-input">
+                    <label for="department">Setor</label>
+                    <input type="text" name="department" id="department" placeholder="Informe o departmento" required>
+                </div>
+                <div class="text-input">
+                    <label for="role">Cargo</label>
+                    <input type="text" name="role" id="role" placeholder="Informe o cargo" required>
+                </div>
+
+                <div class="text-input">
+                    <label for="admission_date">Admissão</label>
+                    <input type="date" name="admission_date" id="admission_date" required>
+                </div>
+
+                <div class="text-input">
+                    <label for="resignation_date">Desligamento</label>
+                    <input type="date" name="resignation_date" id="resignation_date">
+                </div>
+
+                <div class="text-input">
+                    <label for="status">Status</label>
+
+                    <input type="radio" name="status" value="1" id="active">
+                    <label for="active">Ativo</label>
+
+                    <input type="radio" name="status" value="2" id="inactive">
+                    <label for="inactive">Inativo</label>
+                </div>
+
+                <div class="buttons">
+                    <button type="submit" class="btn-save" id="btn-save">Salvar</button>
+                    <button class="btn-primary" onclick="closeForm()">Cancelar</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/employee.js')}}"></script>
+
+
+{% endblock %}

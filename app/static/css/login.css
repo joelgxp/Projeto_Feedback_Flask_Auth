@@ -1,15 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap');
 
-body {
-    font-family: 'Poppins', sans-serif;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: linear-gradient(to bottom right, #fb8883, #eef4d2);
-}
-
-.container {
+.container__login {
     width: 50vw;
     height: 60vh;
     display: grid;
@@ -19,6 +10,11 @@ body {
     border-radius: 20px;
     background: white;
     overflow: hidden;
+}
+
+.login-logo {
+    width: 150px;
+    align-items: center;
 }
 
 .design {
@@ -72,7 +68,6 @@ body {
     border-radius: 70px;
 }
 
-
 .login {
     grid-area: login;
     display: flex;
@@ -83,9 +78,17 @@ body {
     background-color: white;
 }
 
+form#login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 h3.title {
     margin: 15px 0;
     text-transform: uppercase;
+    text-align: center;
 }
 
 .text-input {
@@ -106,6 +109,7 @@ h3.title {
     width: 100%;
     height: 100%;
     margin-left: 10px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .text-input i {
@@ -119,7 +123,7 @@ h3.title {
 .login-btn {
     width: 60%;
     padding: 10px;
-    color: white;
+    color: var(--black);
     background: linear-gradient(to bottom right, #fb8883, #eef4d2);
     border: none;
     border-radius: 20px;
@@ -127,6 +131,14 @@ h3.title {
     margin-top: 10px;
     font-weight: 700;
     text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-btn:hover {
+    opacity: 60%;
 }
 
 a {
@@ -165,6 +177,13 @@ a.forgot {
     background-color: white;
 }
 
+form#new-account {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .forgot-password {
     grid-area: login;
     display: none;
@@ -175,8 +194,8 @@ a.forgot {
     background-color: white;
 }
 
-@media (min-width: 768px) {
-    .container {
+@media (min-width: 1025px) {
+    .container__login {
         grid-template-columns: 50% 50%;
         grid-template-areas: "design login";
     }
@@ -187,10 +206,10 @@ a.forgot {
 }
 
 @media (max-width: 425px) {
-    .container {
+    .container__login {
         grid-template-columns: 100%;
         grid-template-areas: "login";
-        min-width: 80%;
+        width: 100%;
     }
 
     .design {

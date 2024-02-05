@@ -1,11 +1,16 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, flash
 from flask_login import LoginManager, login_user, logout_user, login_required
 
 from app import app, db
-from app.models.model import Users
+from app.models.model import Users, Employees
 
 login_manager = LoginManager(app)
 
+@login_manager.user_loader
+def load_user(user_id):
+    return db.session.get(Users, int(user_id))
+    #return Users.query.get(int(user_id))
+    
 
 @login_manager.unauthorized_handler
 def unauthorized():
@@ -14,7 +19,7 @@ def unauthorized():
 @app.route('/')
 @login_required
 def index():
-    return render_template('index.html')
+    return render_template('employees.html')
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -29,7 +34,7 @@ def register():
             users = Users(name, email, password, access_level)
             db.session.add(users)
             db.session.commit()
-            
+            flash('Usuário criado com sucesso', 'success')
             return redirect(url_for('login'))
         
     return render_template('register.html')
@@ -44,7 +49,8 @@ def login():
                         
             if user and user.verify_password(password):
                 login_user(user)
-                return redirect(url_for('index'))
+                print('Usuário logado com sucesso')
+                return redirect(url_for('employees'))
             else:
                 print('Usuário ou senha inválido')
                 return redirect(url_for('login'))
@@ -57,26 +63,76 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
-@login_manager.user_loader
-def load_user(user_id):
-    return Users.query.get(int(user_id))
-
 # END LOGIN
 
-# Lider
-@app.route('/lider', methods=['GET', 'POST'])
+# Employees
+@app.route('/employees', methods=['GET', 'POST'])
 @login_required
-def lider():
+def employees():
     if request.method == 'GET':
-        lideres = Users.query.all()
-        print(lideres)
-        return render_template('lider.html', lideres=lideres)
+        employees = Employees.query.filter_by(status_id=1).all()
+        return render_template('employees.html', employees=employees)
+    
+    
+@app.route('/employees/new', methods=['GET', 'POST'])
+@login_required
+def new_employee():
+    if request.method == 'GET':
+        return render_template('new_employee.html')
     
     elif request.method == 'POST':
-        
-        return render_template('lider.html')
+        name = request.form.get('name')
+        phone = request.form.get('phone')
+        email = request.form.get('email')
+        role = request.form.get('role')
+        department = request.form.get('department')
+        gender_id = request.form.get('gender')
+        birth_date = request.form.get('birth_date')
+        admission_date = request.form.get('admission_date')
+        resignation_date = request.form.get('resignation_date')
+        marital_status_id = request.form.get('marital-status')
+        status_id = request.form.get('status')        
+ 
+        try:
+            employees = Employees(name=name, phone=phone, email=email, role=role, department=department, gender_id=gender_id, birth_date=birth_date, admission_date=admission_date, resignation_date=resignation_date, marital_status_id=marital_status_id, status_id=status_id)
+            db.session.add(employees)
+            db.session.commit()
+            flash('Funcionário criado com sucesso', 'success')
+            return redirect(url_for('employees'))
+        except Exception as e:
+            print(f'Erro ao cadastrar funcionário: {str(e)}') 
     
-   
+@app.route('/employees/<int:id>/edit', methods=['GET', 'POST'])
+@login_required
+def edit_employee(id):
+    if request.method == 'GET':
+        employee = Employees.query.get(id)
+        return render_template('edit_employee.html', employee=employee)
+    
+    elif request.method == 'POST':
+        employee = Employees.query.get(id)
+        employee.name = request.form.get('name')
+        employee.phone = request.form.get('phone')
+        employee.email = request.form.get('email')
+        employee.role = request.form.get('role')
+        employee.department = request.form.get('department')
+        employee.gender_id = request.form.get('gender')
+        employee.birth_date = request.form.get('birth_date')
+        employee.admission_date = request.form.get('admission_date')
+        employee.resignation_date = request.form.get('resignation_date')
+        employee.marital_status_id = request.form.get('marital-status')
+        employee.status_id = request.form.get('status')
+        
+        try:
+            db.session.commit()
+            flash('Funcionário editado com sucesso', 'success')
+            return redirect(url_for('employees'))
+        except Exception as e:
+            print(f'Erro ao editar funcionário: {str(e)}')
+            flash('Erro ao editar funcionário', 'error')
+            return redirect(url_for('employees'))
+        
+    return render_template('edit_employee.html', employee=employee)
 
 
 app.run(debug=True)

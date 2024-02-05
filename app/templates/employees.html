@@ -1,0 +1,61 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="container__list" id="blur">
+    <div class="card">
+        <section class="table__header">
+            <div class="title">
+                <h1>Gerenciar time</h1>
+                <a href="/employees/new" class="btn">
+                    <i class="ri-add-circle-fill"></i>
+                </a>
+            </div>
+
+            <div class="input-group">
+                <input type="search" name="search" id="search" placeholder="Pesquisar..." onkeyup="filterTable()">
+                <i class="ri-search-line"></i>
+            </div>
+        </section>
+        <section class="table__body">
+            <table class="table-sortable" id="table-sortable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th class="hideOnMobile">Celular</th>
+                        <th class="hideOnMobile">E-mail</th>
+                        <th>Setor</th>
+                        <th>Cargo</th>
+                        <th class="hideOnMobile">Admissão</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    {% for employee in employees %}
+                    <tr>
+                        <ul>
+                            <td data-title="ID">{{ employee.id }}</td>
+                            <td data-title="Nome">{{ employee.name }}</td>
+                            <td class="hideOnMobile">{{ employee.phone }}</td>
+                            <td class="hideOnMobile">{{ employee.email }}</td>
+                            <td data-title="Setor">{{ employee.role }}</td>
+                            <td data-title="Cargo">{{ employee.department }}</td>
+                            <td class="hideOnMobile" data-title="Admissão">{{ employee.admission_date }}</td>
+                            <td data-title="Ações">
+                                <button class="btn" type="button" title="Editar" id="editar">
+                                    <a href="/employees/{{ employee.id }}/edit">
+                                        <i class="ri-edit-2-fill"></i>
+                                    </a>
+                                </button>
+                            </td>
+                        </ul>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/employee.js')}}"></script>
+
+{% endblock %}
