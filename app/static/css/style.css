@@ -21,7 +21,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    overflow: scroll;
     height: 100svh;
     height: -webkit-fill-available;
     font-family: 'Poppins', sans-serif;
