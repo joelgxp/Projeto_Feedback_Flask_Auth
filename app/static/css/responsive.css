@@ -5,17 +5,17 @@
 
     .container__list {
         width: 100%;
-        margin: 40px 10px 0 10px;
+        margin: 40px 10px 20px 10px;
     }
 
     .container__register {
         width: 100%;
-        margin: 40px 10px 0 10px;
+        margin: 40px 10px 20px 10px;
     }
 
     .container {
         width: 100%;
-        margin: 40px 20px 0 20px;
+        margin: 40px 20px 20px 20px;
     }
 
     .table__header {
@@ -63,14 +63,14 @@
         width: 100%;
         margin: 40px 10px 0 10px;
         position: relative;
-        top: 475px;
+        top: 145px;
     }
 
     .container__register {
         width: 100%;
         margin: 40px 10px 0 10px;
         position: relative;
-        top: 150px;
+        top: 145px;
     }
 
     .table__header {
@@ -151,5 +151,26 @@
         align-items: flex-start;
         height: 180px;
         justify-content: center;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    body {
+        overflow: scroll;
+    }
+
+    .container__list {
+        width: 100%;
+        margin: 40px 10px 20px 10px;
+    }
+
+    .container__register {
+        width: 100%;
+        margin: 40px 10px 20px 10px;
+    }
+
+    .container {
+        width: 100%;
+        margin: 70px 20px 20px 20px;
     }
 }
