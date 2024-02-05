@@ -1,3 +1,5 @@
+
+const formLider = document.getElementById('formLider');
 let popup = document.getElementById('popup'),
     blur = document.getElementById('blur'),
     popForm = document.getElementById('wrapper'),
@@ -8,7 +10,7 @@ let popup = document.getElementById('popup'),
 function closeForm() {
     window.location.href("/employees");
 }
-s
+
 function closePopup() {
     popup.classList.remove('open-popup');
     blur.classList.remove('active');
@@ -89,3 +91,12 @@ document.querySelectorAll('.table-sortable th').forEach(headerCell => {
         sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
     })
 })
+
+// Temporizador para remover automaticamente as mensagens flash após 5 segundos
+setTimeout(function () {
+    var flashMessages = document.querySelectorAll('.flash-message');
+    flashMessages.forEach(function (message) {
+        message.remove();
+    });
+}, 5000);
+

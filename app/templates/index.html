@@ -72,7 +72,29 @@
         {% endblock %}
     </div>
 
+     <!-- TODO: flash messages -->
+   {% with messages = get_flashed_messages() %}
+   {% if messages %}
+   {% for message in messages %}
+   
+   <div class="flash-message alert alert-reg">
+       <i class="ri-checkbox-circle-fill"></i>
+       <span class="del-msg msg">{{ message }}</span>
+       <span class="close-btn close-btn-del">
+           <i class="ri-close-line"></i>
+       </span>
+   </div>
+
+   {% endfor %}
+   {% endif %}
+   {% endwith %}
+   <!-- flash messages -->
+
     <script src="{{ url_for('static',  filename='js/index.js') }}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
 </body>
 
 </html>

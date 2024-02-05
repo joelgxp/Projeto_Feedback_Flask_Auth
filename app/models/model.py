@@ -61,15 +61,14 @@ class Employees(db.Model):
     role = db.Column(db.String(45), nullable=False)
     department = db.Column(db.String(45), nullable=False)
     gender_id = db.Column(db.Integer, db.ForeignKey('gender.id'))
-    gender = db.relationship('Gender', backref=db.backref('employees', lazy=True))
+    gender = db.relationship('Gender', backref=db.backref('employees'))
     birth_date = db.Column(db.Date)
     admission_date = db.Column(db.Date)
     resignation_date = db.Column(db.Date, nullable=True)
-    #address_id = db.Column(db.Integer, db.ForeignKey('address.id'))
     marital_status_id = db.Column(db.Integer, db.ForeignKey('marital_status.id'))
-    marital_status = db.relationship('MaritalStatus', backref=db.backref('employees', lazy=True))
+    marital_status = db.relationship('MaritalStatus', backref=db.backref('employees'))
     status_id = db.Column(db.Integer, db.ForeignKey('status.id'))
-    status = db.relationship('Status', backref=db.backref('employees', lazy=True))
+    status = db.relationship('Status', backref=db.backref('employees'))
     
     # no init retirei o address
     def __init__(self, name, phone, email, role, department, gender_id, birth_date, admission_date, resignation_date, marital_status_id, status_id):
@@ -82,7 +81,6 @@ class Employees(db.Model):
         self.birth_date = birth_date
         self.admission_date = admission_date
         self.resignation_date = resignation_date
-        #self.address_id = address_id
         self.marital_status_id = marital_status_id
         self.status_id = status_id
         

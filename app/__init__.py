@@ -14,4 +14,4 @@ app.config['SECRET_KEY'] = 'super-secret-key'
 login_manager = LoginManager(app)
 db = SQLAlchemy(app)
 
-app.config['MESSAGE_FLASHING_OPTIONS'] = {'duration': 5}
+app.config['MESSAGE_FLASHING_OPTIONS'] = {'duration': 3}
