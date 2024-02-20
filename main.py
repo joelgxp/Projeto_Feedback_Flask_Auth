@@ -135,4 +135,4 @@ def edit_employee(id):
     return render_template('edit_employee.html', employee=employee)
 
 
-app.run(debug=True)
+app.run(debug=True, host='0.0.0.0', port=5000)
