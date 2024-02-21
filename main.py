@@ -4,6 +4,8 @@ from flask_login import LoginManager, login_user, logout_user, login_required
 from app import app, db
 from app.models.model import Users, Employees
 
+import os
+
 login_manager = LoginManager(app)
 
 @login_manager.user_loader
@@ -135,4 +137,4 @@ def edit_employee(id):
     return render_template('edit_employee.html', employee=employee)
 
 
-app.run(debug=True, host='0.0.0.0', port=5000)
+app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
