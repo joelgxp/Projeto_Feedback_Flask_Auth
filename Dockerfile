@@ -16,7 +16,7 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # Expõe a porta 5000 para acessar o aplicativo Flask
-ENV PORT 5000
+ENV PORT 8080
 
 # Comando para executar o aplicativo Flask quando o contêiner for iniciado
 CMD ["python", "main.py"]
