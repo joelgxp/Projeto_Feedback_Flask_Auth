@@ -1,5 +1,5 @@
-# Projeto_Dashboard_Django_Nginx_Docker
- Sistema web desenvolvido com Flask, Nginx e Docker
+# Projeto Team Track Escola Korú by IFood
+ Sistema web desenvolvido com Flask, Docker e GCP
 
 ## Pré-requisitos
 
@@ -20,4 +20,6 @@
 - python main.py
 
 Acesse http://localhost:5000/ em seu navegador.
+
+Ou acesse pelo endereço: https://team-track-ggx7gnne5q-uc.a.run.app/register
 
