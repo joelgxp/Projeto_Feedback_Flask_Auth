@@ -23,3 +23,10 @@ Acesse http://localhost:5000/ em seu navegador.
 
 Ou acesse pelo endereço: https://team-track-ggx7gnne5q-uc.a.run.app/register
 
+## Colaboradores
+Este projeto foi desenvolvido por:
+
+[Joel Souza](https://github.com/joelgxp)
+
+[Marianna Rodrigues](https://github.com/mxriannar)
+
